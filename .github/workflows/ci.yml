@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow for pushes to the 'main' branch
+  pull_request:
+    branches:
+      - main  # Trigger workflow for pull requests targeting the 'main' branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner for this job
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3  # Checkout the repository
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Use Node.js version 16
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Run Linting
+      run: |
+        npm run lint  
+
+    - name: Run Tests
+      run: |
+        npm test  
+
+    - name: Run Prettier Formatting Check
+      run: |
+        npm run format --check  
