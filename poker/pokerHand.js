@@ -1,15 +1,12 @@
 
-
-
-
-
 function compareHands(handF, handS){
 
 
+    
 
 
 
-
+    
 
 }
 
@@ -116,11 +113,11 @@ class PokerHand{
         }
     
         
-         if (this.kicker>otherHand.kicker){
+         if (this.handComponents.kicker>otherHand.handComponents.kicker){
             return 1;
 
          }
-         else if (this.kicker<otherHand.kicker){
+         else if (this.handComponents.kicker<otherHand.handComponents.kicker){
             return -1;
          }
         return 0; // Tie
