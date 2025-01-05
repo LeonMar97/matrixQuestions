@@ -1,11 +1,17 @@
 
 function compareHands(handF, handS){
 
-
-    
-
-
-
+    const hand1 = new PokerHand(handF);
+    const hand2 = new PokerHand(handS);
+  
+    const rank1 = hand1.evaluateRank();
+    const rank2 = hand2.evaluateRank();
+  
+    if (rank1 !== rank2) return rank1 > rank2 ? 1 : -1;
+  
+    else{
+        return hand1.compareTieBreaker(hand2)
+    }
     
 
 }
@@ -124,6 +130,10 @@ class PokerHand{
       }
 
 
-
 }
+
+let handL="KKQQT"
+let handR="TJQKA"
+
+console.log(compareHands(handL,handR))
 
