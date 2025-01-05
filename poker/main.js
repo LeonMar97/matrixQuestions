@@ -132,8 +132,8 @@ class PokerHand{
 
 }
 
-let handL="KKQQT"
-let handR="TJQKA"
-
-console.log(compareHands(handL,handR))
+module.exports = {
+    compareHands,
+    PokerHand
+};
 
